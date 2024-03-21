@@ -1,0 +1,36 @@
+<div class=" " style="background-color: #d1cab8;">
+    <img style="opacity: 2;" src="https://www.wien.info/resource/image/290094/Hero-Header/1890/700/7c3fb902922b8ff2e8592e9b1e4a4611/90C666B70CAC6FF3906143BFE8E43439/3-4-do-co-41123.webp" alt="" class="img-fluid">
+
+    <div class=" row mx-3" >
+        <div  *ngFor="let recipe of allRecipes" class="col-lg-4 col-md-6 mb-4" >
+            <div class="card h-100 mt-4">
+                <img [src]="recipe.image" class="card-img-top" alt="{{ recipe.name }}">
+                <div class="card-body ">
+                    <h5 class="card-title text-center fw-bolder">{{ recipe.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Rating: {{ recipe.rating }}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Ingredients:</h6>
+                    <div class="row">
+                        <div class="col">
+                            <ul class="list-unstyled">
+                                <li *ngFor="let ingredient of recipe.ingredients.slice(0, recipe.ingredients.length / 2)">
+                                    <span class="bullet">&bull;</span> {{ ingredient }}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <ul class="list-unstyled">
+                                <li *ngFor="let ingredient of recipe.ingredients.slice(recipe.ingredients.length / 2)">
+                                    <span class="bullet">&bull;</span> {{ ingredient }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h6 class="card-subtitle mb-2 text-muted">Instructions:</h6>
+                    <ol>
+                        <li *ngFor="let instruction of recipe.instructions">{{ instruction }}</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
